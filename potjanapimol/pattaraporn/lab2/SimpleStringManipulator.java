@@ -37,8 +37,6 @@ public class SimpleStringManipulator {
             text2 = text2.substring(0,text2.length()-1) + Character.toLowerCase(text2.charAt(text2.length()-1));
         }
         // Output Resulting String
-        System.out.println("Resulting String: "+text1+text2);
-        
-        
+        System.out.println("Resulting String: "+text1+text2);       
     }
 }
