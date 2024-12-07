@@ -1,4 +1,5 @@
 package potjanapimol.pattaraporn.lab2;
+
 /*
  * Author: Pattaraporn Potjanapimol
  * ID : 673040627-5
@@ -24,7 +25,7 @@ public class PrimitiveDataType {
         String studentNumber = "673040627-5";
         String firstname = "Pattaraporn";
         byte myByte = 11;
-        short myShort =231;
+        short myShort = 231;
         int myInt = 406275;
         long myLong = 67304046275l;
         float myFloat = 0.11f;
@@ -32,16 +33,16 @@ public class PrimitiveDataType {
         char myChar = 'P';
         boolean myBoolean = true;
         // Outputting Variable
-        System.out.println("Student ID : "+studentNumber);
-        System.out.println("First Name : "+firstname);
-        System.out.println("Byte Value: "+myByte);
-        System.out.println("Short Value: "+myShort);
-        System.out.println("Int Value: "+myInt);
-        System.out.println("Long Value: "+myLong);
-        System.out.println("Float Value: "+myFloat);
-        System.out.println("Double Value: "+myDouble);
-        System.out.println("Char Value: "+myChar);
-        System.out.println("Boolean Value: "+myBoolean);
-        
+        System.out.println("Student ID : " + studentNumber);
+        System.out.println("First Name : " + firstname);
+        System.out.println("Byte Value: " + myByte);
+        System.out.println("Short Value: " + myShort);
+        System.out.println("Int Value: " + myInt);
+        System.out.println("Long Value: " + myLong);
+        System.out.println("Float Value: " + myFloat);
+        System.out.println("Double Value: " + myDouble);
+        System.out.println("Char Value: " + myChar);
+        System.out.println("Boolean Value: " + myBoolean);
+
     }
 }

@@ -18,13 +18,13 @@ public class NumberGuessingGame {
         // user input
         Scanner input = new Scanner(System.in);
         int min = 1, max = 10; // declare variable
-        int answer = min + (int) (Math.random() * (max - min) + 1); //generate answer
+        int answer = min + (int) (Math.random() * (max - min) + 1); // generate answer
         System.out.println("Welcome to a number guessing game!");
         // if input is correct .value is change to false
         boolean check = true;
         // loop 5 times
         for (int i = 1; i < 6; ++i) {
-            System.out.print("Enter an integer between " + min + " and " + max + ":"); //output
+            System.out.print("Enter an integer between " + min + " and " + max + ":"); // output
             int number = input.nextInt();
             // condition check your answer and number
             if (number == answer) {
@@ -34,7 +34,7 @@ public class NumberGuessingGame {
                 } else {
                     System.out.println("You have tried " + i + " times");
                 }
-                check = false; 
+                check = false;
                 break; // Stop the program
             } else if (number < answer) {
                 System.out.println("Try a higher number!");
@@ -46,7 +46,7 @@ public class NumberGuessingGame {
         if (check) {
             System.out.println("You have tried 5 times. You ran out of guesses\nThe answer is " + answer);
         }
-        //close scanner
+        // close scanner
         input.close();
     }
 }
