@@ -41,7 +41,7 @@ public class ConfigurableNumberGuessingGame {
             }
             System.err.println("The maximum number of tries must be greater than 0");
         }
-        int answer = min + (int) (Math.random() * (max - min) + 1); // generate answer
+        int answer = min + (int) (Math.random() * ((max - min) + 1)); // generate answer
         System.out.println("Welcome to a number guessing game!");
         // if input is correct .value is change to false
         boolean check = true;
@@ -51,12 +51,11 @@ public class ConfigurableNumberGuessingGame {
             while (true) {
                 System.out.print("Enter an integer between " + min + " and " + max + ":");
                 number = input.nextInt();
-                // Check your input number.Display Error messsage if number is not between min
-                // and max value
+                // Check your input number.Display Error messsage if number is not between min and max value
                 if (number >= min && number <= max) {
                     break;
                 }
-                System.err.println("The number must be between 2 and 5");
+                System.err.println("The number must be between "+min+" and "+max);
             }
 
             // condition check your answer and number
@@ -68,7 +67,7 @@ public class ConfigurableNumberGuessingGame {
                     System.out.println("You have tried " + i + " times");
                 }
                 check = false;
-                break; // Stop the program
+                break; // Stop loop
             } else if (number < answer) {
                 System.out.println("Try a higher number!");
             } else {
