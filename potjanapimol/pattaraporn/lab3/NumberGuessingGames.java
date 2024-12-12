@@ -3,7 +3,6 @@
  * ID : 673040627-5
  * Sec : 2
  * The NumberGuessingGames Program
- * The ConfigurableNumberGuessingGame Program
  * this program is a simple number guessing game where the user can define 
  * the range of numbers and the maximum number of attempts they are allowed.
  * user input Min Max Maximum number of tries
@@ -11,7 +10,7 @@
  * and the program checks for valid inputs by while Loop
  * more features this program :after each game, the user is asked whether they want to play again.
  * If the user chooses to replay, a new random number is generated.
- * Last-Update: 07/12/2567
+ * Last-Update: 12/12/2567
  */
 package potjanapimol.pattaraporn.lab3;
 
