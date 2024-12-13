@@ -2,6 +2,7 @@
  * Author: Pattaraporn Potjanapimol
  * ID : 673040627-5
  * Sec : 2
+ * The NumberGuessingMethodGames Program
  * The NumberGuessingGames Program
  * this program is a simple number guessing game where the user can define 
  * the range of numbers and the maximum number of attempts they are allowed.
@@ -10,47 +11,60 @@
  * and the program checks for valid inputs by while Loop
  * more features this program :after each game, the user is asked whether they want to play again.
  * If the user chooses to replay, a new random number is generated.
+ * In this Program we will called method in main
+ * configure() user input ,genAnswer() generate answers
+ * playGame() play this game 1 times ,  playGames() the user is asked whether they want to play again.
  * Last-Update: 13/12/2567
  */
-package potjanapimol.pattaraporn.lab3;
+package potjanapimol.pattaraporn.lab4;
 
 import java.util.Scanner;
 
-public class NumberGuessingGames {
+public class NumberGuessingMethodGames {
+    //decleard variable
+    static Scanner input = new Scanner(System.in); // user input
+    static int min,max,count,answer,number;
+    static boolean check;
+    static String newStart;
     public static void main(String[] args) {
-        // user input
-        Scanner input = new Scanner(System.in);
+        //called method
+        configure();
+        playGames();
+    }
+    static void configure(){
         System.out.print("Enter the min value:");
-        int min = input.nextInt();
-        // declare global variable
-        int max = 0;
-        int count = 0;
+        min = input.nextInt();
+        System.out.print("Enter the max value:");
+        max = input.nextInt();
+        checkValidvalue(); //called method to check
+        System.out.print("Enter the maximum number of tries:");
+        count = input.nextInt();
+        checkValidcount(); //called method to check
+    }
+    static void genAnswer(){
+        // generate answers
+        answer = min + (int) (Math.random() * ((max - min) + 1));
+    }
+    static void checkValidvalue(){
         // Check your input.Display Error messsage if max<min
-        while (true) {
+        while (max < min) {
+            System.err.println("The max value must be at least equal to the min value");
             System.out.print("Enter the max value:");
             max = input.nextInt();
-            if (max >= min) {
-                break; // Stop Loop
-            }
-            System.err.println("The max value must be at least equal to the min value");
         }
+    }
+    static void checkValidcount(){
         // Check your input.Display Error messsage if count<=0
-        while (true) {
+        while (count <= 0) {
+            System.err.println("The maximum number of tries must be greater than 0");
             System.out.print("Enter the maximum number of tries:");
             count = input.nextInt();
-            if (count > 0) {
-                break; // Stop Loop
-            }
-            System.err.println("The maximum number of tries must be greater than 0");
         }
-        // if input is correct .value is change to false
-        int answer = 0;
-        while (true) {
-            // declared variable
-            boolean check = true;
+    }
+    static void playGame(){
+            check = true;
             System.out.println("Welcome to a number guessing game!");
-            answer = min + (int) (Math.random() * ((max - min) + 1)); // generate answer
-            // loop <your count> times
+            genAnswer(); //called method
             for (int i = 1; i < count + 1; ++i) {
                 int number = 0; // global variable in for loop
                 while (true) {
@@ -90,16 +104,20 @@ public class NumberGuessingGames {
                 System.out.println("You have tried " + count + " times.\nThe answer is " + answer);
                 }
             }
+        
+    }
+    static void playGames(){
+        while (true) {
+            playGame();
             System.out.print("Want to play again (Y or y):");
             input.nextLine(); // play again
-            String newStart = input.nextLine();
+            newStart = input.nextLine();
             // if user want to close the program
-            if (!newStart.equalsIgnoreCase("y")) {
+            if(!newStart.equalsIgnoreCase("y")){
                 System.out.println("Thank you for playing our games. Bye!");
                 break;
             }
         }
-
         // close scanner
         input.close();
     }
