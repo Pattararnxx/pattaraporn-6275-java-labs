@@ -19,14 +19,14 @@ public class NumberGuessingMethodGamesV2 {
     static Scanner input = new Scanner(System.in); // user input
     static int min, max, count, answer, number, guessNum;
     static boolean check;
-    static String newStart,key;
-    static int [] guessing = new int[10]; // create array
+    static String newStart, key;
+    static int[] guessing = new int[10]; // create array
 
     public static void main(String[] args) {
         // called method
         configure();
         playGames();
-        
+
     }
 
     static void configure() {
@@ -81,7 +81,7 @@ public class NumberGuessingMethodGamesV2 {
                 }
                 System.err.println("The number must be between " + min + " and " + max);
             }
-            guessing[i-1] = number; // input user number in array index
+            guessing[i - 1] = number; // input user number in array index
 
             // condition check your answer and number
             if (number == answer) {
@@ -98,7 +98,7 @@ public class NumberGuessingMethodGamesV2 {
             } else {
                 System.out.println("Try a lower number!");
             }
-            
+
         }
         // if input is incorrect display text and correct answer
         if (check) {
@@ -110,46 +110,49 @@ public class NumberGuessingMethodGamesV2 {
         }
 
     }
-    static void displayGuesses(){
+
+    static void displayGuesses() {
         System.out.print("Enter 'a' to list all guesses, 'g' for a specific guess, or any other key to quit:");
-        key = input.next(); //Reads the next token
+        key = input.next(); // Reads the next token
         if (key.equals("a")) {
             // elements number
-            for(int i=0;i < guessing.length;i++){
-                if (guessing[i]==0) break; //Stop Loop
-                System.out.println("Guess "+(i+1)+": " +guessing[i]);
+            for (int i = 0; i < guessing.length; i++) {
+                if (guessing[i] == 0)
+                    break; // Stop Loop
+                System.out.println("Guess " + (i + 1) + ": " + guessing[i]);
             }
-        }else if (key.equals("g")){
+        } else if (key.equals("g")) {
             System.out.print("Enter the guess number:");
             guessNum = input.nextInt();
-            input.nextLine(); //clear buffer
-            System.out.println("Guess "+ guessNum +": "+guessing[guessNum-1]);
+            input.nextLine(); // clear buffer
+            System.out.println("Guess " + guessNum + ": " + guessing[guessNum - 1]);
         }
     }
-    static void displayGuessesLoop(){
+
+    static void displayGuessesLoop() {
         while (true) {
             displayGuesses();
             // If user input 'a' or 'g' this loop is false
             if (!key.equals("a") && !key.equals("g")) {
-                break; //Stop Loop
+                break; // Stop Loop
             }
         }
     }
 
     static void playGames() {
-        do{ 
-            //Do one cycle ignoring the conditions.
+        do {
+            // Do one cycle ignoring the conditions.
             playGame();
             displayGuessesLoop();
             System.out.print("Want to play again (Y or y):");
-            input.nextLine(); //clear buffer
+            input.nextLine(); // clear buffer
             newStart = input.nextLine();
             // if user want to close the program
             if (!newStart.equalsIgnoreCase("y")) {
                 System.out.println("Thank you for playing our games. Bye!");
                 break;
             }
-        }while (true);
+        } while (true);
         // close scanner
         input.close();
     }
