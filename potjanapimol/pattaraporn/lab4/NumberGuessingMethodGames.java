@@ -32,7 +32,7 @@ public class NumberGuessingMethodGames {
         playGames();
     }
 
-    static void configure() {
+    public static void configure() {
         System.out.print("Enter the min value:");
         min = input.nextInt();
         System.out.print("Enter the max value:");
@@ -43,12 +43,12 @@ public class NumberGuessingMethodGames {
         checkValidcount(); // called method to check
     }
 
-    static void genAnswer() {
+    public static void genAnswer() {
         // generate answers
         answer = min + (int) (Math.random() * ((max - min) + 1));
     }
 
-    static void checkValidvalue() {
+    public static void checkValidvalue() {
         // Check your input.Display Error messsage if max<min
         while (max < min) {
             System.err.println("The max value must be at least equal to the min value");
@@ -57,7 +57,7 @@ public class NumberGuessingMethodGames {
         }
     }
 
-    static void checkValidcount() {
+    public static void checkValidcount() {
         // Check your input.Display Error messsage if count<=0
         while (count <= 0) {
             System.err.println("The maximum number of tries must be greater than 0");
@@ -66,7 +66,7 @@ public class NumberGuessingMethodGames {
         }
     }
 
-    static void playGame() {
+    public static void playGame() {
         check = true;
         System.out.println("Welcome to a number guessing game!");
         genAnswer(); // called method
@@ -112,7 +112,7 @@ public class NumberGuessingMethodGames {
 
     }
 
-    static void playGames() {
+    public static void playGames() {
         while (true) {
             playGame();
             System.out.print("Want to play again (Y or y):");

@@ -2,22 +2,29 @@
  * Author: Pattaraporn Potjanapimol
  * ID : 673040627-5
  * Sec : 2
- * The NumberGuessingMethodGamesV2 Program
+ * The NumberGuessingMethodGamesV3 Program
  * This program users can view all previous guesses 
  * or a specific guess and can choose to play again after each round.
  * We will store the user's input in an array 
  * and access the array elements through displayGuess() method
  * and displayGuessLoop(), which is called in the playGames() method
- * Last-Update: 14/12/2567
+ * displayGameLog() method to show detailed logs for each game, 
+ * including the answer, total guesses, and win status.
+ * Added displayAllGamesStats() method to display overall statistics 
+ * after the program ends.
+ * Introduced high-score tracking (minimum guesses for a win).
+ * Updated playGames() method to integrate new features seamlessly.
+ * Last-Update: 15/12/2567
  */
+
 package potjanapimol.pattaraporn.lab4;
 
 import java.util.Scanner;
 
-public class NumberGuessingMethodGamesV2 {
+public class NumberGuessingMethodGamesV3 {
     // decleard variable
     static Scanner input = new Scanner(System.in); // user input
-    static int min, max, count, answer, number, guessNum;
+    static int min, max, count, answer, number, guessNum, guessLog, numGames, numWins, totalGuesses, highScore;
     static boolean check;
     static String newStart, key;
     static int[] guessing = new int[10]; // create array
@@ -91,6 +98,8 @@ public class NumberGuessingMethodGamesV2 {
                 } else {
                     System.out.println("You have tried " + i + " times");
                 }
+                numWins++; // Count the number of wins
+                guessLog = i; // Count the number of guessing
                 check = false; // change boolean to false
                 break; // Stop loop
             } else if (number < answer) {
@@ -107,8 +116,11 @@ public class NumberGuessingMethodGamesV2 {
             } else {
                 System.out.println("You have tried " + count + " times.\nThe answer is " + answer);
             }
+            guessLog = count;
         }
-
+        totalGuesses += guessLog; // total number of guessing
+        if (highScore > guessLog)
+            highScore = guessLog; // highscore
     }
 
     public static void displayGuesses() {
@@ -139,11 +151,33 @@ public class NumberGuessingMethodGamesV2 {
         }
     }
 
+    public static void displayGameLog() {
+        // Display score after endgame
+        System.out.println("Game log:Answer: " + answer + ", " + "Guesses: " + guessLog + ", " + "Win: " + !check);
+    }
+
+    public static void displayAllGamesStats() {
+        // Display this function after close this program
+        System.out.println("===== All Games Stats =====");
+        System.out.println("Total games played: " + numGames);
+        System.out.println("Total games win: " + numWins);
+        System.out.println("Win ratio: " + ((double) numWins / numGames) * 100.0 + "%");
+        System.out.println("Average number of guesses per game: " + totalGuesses / numGames);
+        System.out.println("High score (the lowest number of guesses):" + highScore);
+    }
+
     public static void playGames() {
+        // Define a variable
+        numGames = 0;
+        numWins = 0;
+        totalGuesses = 0;
+        highScore = Integer.MAX_VALUE;
         do {
             // Do one cycle ignoring the conditions.
             playGame();
+            numGames++; // Count the number of wins
             displayGuessesLoop();
+            displayGameLog();
             System.out.print("Want to play again (Y or y):");
             input.nextLine(); // clear buffer
             newStart = input.nextLine();
@@ -153,6 +187,7 @@ public class NumberGuessingMethodGamesV2 {
                 break;
             }
         } while (true);
+        displayAllGamesStats();
         // close scanner
         input.close();
     }
