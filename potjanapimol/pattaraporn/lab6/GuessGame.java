@@ -64,6 +64,14 @@ public class GuessGame {
         this.maxTries = maxTries;
     }
 
+    public int getAttempts(){
+        return this.attempts;
+    }
+
+    public void setAttempts(){
+        this.attempts = 0;
+    }
+
     public void configureGame(int min, int max, int maxTries) {
         this.min = min;
         this.max = max;
@@ -75,24 +83,22 @@ public class GuessGame {
         this.answer = min + (int) (Math.random() * ((max - min) + 1));
     }
 
+    public int getAnswer() {
+        return this.answer;
+    }
+
+    public void setAnswer(GuessGame guessGame) {
+        this.answer =answer;
+    }
+
     public boolean playSingleGame() {
         boolean check = true;
         System.out.println("Welcome to the Number Guessing Game!");
         generateAnswer(); // called method
         for (int i = 1; i < maxTries + 1; ++i) {
             int number = 0; // global variable in for loop
-            while (true) {
-                System.out.print("Enter an integer between " + this.min + " and " + this.max + ": ");
-                number = NumberGuessingOOPGame.input.nextInt();
-                /*
-                 * Check your input number.Display Error messsage if number is not between min
-                 * and max value
-                 */
-                if (number >= this.min && number <= this.max) {
-                    break; // stop loop
-                }
-                System.err.println("The number must be between " + this.min + " and " + this.max);
-            }
+            System.out.print("Enter an integer between " + this.min + " and " + this.max + ": ");
+            number = NumberGuessingOOPGame.input.nextInt();
 
             // condition check your answer and number
             this.attempts = i;
