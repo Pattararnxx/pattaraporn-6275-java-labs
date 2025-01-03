@@ -3,7 +3,13 @@
  * ID : 673040627-5
  * Sec : 2
  * The GuessGameV2 Class
- * Last-Update : 03/01/2568 
+ * This class extends the GuessGame class and overrides the methods to provide additional functionality.
+ * It allows the user to configure the game with a minimum and maximum value and maximum number of tries.
+ * The class validates the inputs to ensure they are valid.
+ * It also contains the logic for playing a single game, including taking user input,
+ * giving feedback, and determining whether the user has won or lost.
+ * The configuration details of the game can be displayed using the `toString` method.
+ * Last-Update : 03/01/2568
  */
 package potjanapimol.pattaraporn.lab6;
 
