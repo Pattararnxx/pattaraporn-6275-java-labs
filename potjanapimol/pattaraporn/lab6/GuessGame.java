@@ -68,8 +68,8 @@ public class GuessGame {
         return this.attempts;
     }
 
-    public void setAttempts(){
-        this.attempts = 0;
+    public void setAttempts(int attempts){
+        this.attempts = attempts;
     }
 
     public void configureGame(int min, int max, int maxTries) {

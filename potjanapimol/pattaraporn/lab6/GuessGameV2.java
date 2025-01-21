@@ -18,7 +18,7 @@ public class GuessGameV2 extends GuessGame {
         super(); // Calls constructor of the superclass GuessGame
     }
 
-    public GuessGameV2(int max, int min, int maxTries) {
+    public GuessGameV2(int min, int max, int maxTries) {
         super(min, max, maxTries); // Calls the parameter
     }
 
