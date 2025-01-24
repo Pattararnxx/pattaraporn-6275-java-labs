@@ -23,8 +23,7 @@ public class NumberGuessingOOPGameV3 {
     public static Scanner input = new Scanner(System.in); // Scanner for user input
     private GuessGameV3 game; // Instance variable for game logic
 
-    
-     // Configure the game by setting up range and maximum tries.
+    // Configure the game by setting up range and maximum tries.
     public void configure() {
         // Get min and max range from user
         System.out.print("Enter the min value: ");
@@ -34,7 +33,7 @@ public class NumberGuessingOOPGameV3 {
 
         // Initialize game with default values and validate inputs
         this.game = new GuessGameV3(min, max, 1);
-        this.game.configureGame(min, max, 1); 
+        this.game.configureGame(min, max, 1);
 
         // Get validated min and max
         min = this.game.getMin();
@@ -49,9 +48,8 @@ public class NumberGuessingOOPGameV3 {
         GuessGameV3.addGameRecord(this.game); // Save this game to records
     }
 
-    
     // Main game loop allowing play, viewing records, or quitting.
-     
+
     public void playGames() {
         boolean playAgain, choiceAgain = false; // Loop controls
         do {
@@ -67,12 +65,12 @@ public class NumberGuessingOOPGameV3 {
 
                 if (choice == 1) {
                     configure(); // Reconfigure for a new game
-                    choiceAgain = false; 
-                    playAgain = true; 
+                    choiceAgain = false;
+                    playAgain = true;
                 } else if (choice == 2) {
                     viewRecords(); // View game records
-                    playAgain = true; 
-                    choiceAgain = true; 
+                    playAgain = true;
+                    choiceAgain = true;
                 } else if (choice == 3) {
                     // Exit the game
                     System.out.println("Thank you for playing Number Guessing Game V3!");
@@ -88,9 +86,8 @@ public class NumberGuessingOOPGameV3 {
         } while (playAgain); // Continue playing if the user selects "Play again"
     }
 
-    
     // View all game records or a specific game record.
-     
+
     public void viewRecords() {
         System.out.println("View:");
         System.out.println("1. Complete Records");
@@ -106,7 +103,8 @@ public class NumberGuessingOOPGameV3 {
             // Show specific game record
             System.out.print("Enter the game number to view: ");
             int gameView = input.nextInt() - 1;
-            if (gameView < 0 || gameView >= GuessGameV3.getRecordCount() || GuessGameV3.getGameRecords()[gameView] == null) {
+            if (gameView < 0 || gameView >= GuessGameV3.getRecordCount()
+                    || GuessGameV3.getGameRecords()[gameView] == null) {
                 System.err.println("No game record found for game " + (gameView + 1) + ".");
             } else {
                 System.out.println(GuessGameV3.getGameRecords()[gameView].getGamelog());
@@ -116,9 +114,8 @@ public class NumberGuessingOOPGameV3 {
         }
     }
 
-    
-    //Main method to start the program.
-     
+    // Main method to start the program.
+
     public static void main(String[] args) {
         NumberGuessingOOPGameV3 program = new NumberGuessingOOPGameV3(); // Create game instance
         program.configure(); // Configure initial game
