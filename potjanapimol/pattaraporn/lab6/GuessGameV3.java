@@ -11,7 +11,7 @@
  * - Tracks guesses, attempts, and if the game was won.
  * - Allows viewing detailed logs for each game.
  * 
- * Last-Update : 22/01/2568
+ * Last-Update : 28/01/2568
  */
 
 package potjanapimol.pattaraporn.lab6;
@@ -52,7 +52,7 @@ public class GuessGameV3 extends GuessGameV2 {
     // Main game loop
     @Override
     public boolean playSingleGame() {
-        boolean check = true; // To track if player guessed correctly
+        boolean check = true;
         int attempts = 0; // Count attempts
         System.out.println("Welcome to the Record-Keeping Number Guessing Game!");
         generateAnswer(); // Pick a random number
@@ -62,7 +62,7 @@ public class GuessGameV3 extends GuessGameV2 {
         for (int i = 1; i <= getMaxTries(); i++) {
             int number = 0; // User's guess
             while (true) {
-                System.out.print("Enter a number (" + getMin() + " to " + getMax() + "): ");
+                System.out.print("Enter an integer between " + getMin() + " and " + getMax() + ": ");
                 number = NumberGuessingOOPGameV2.input.nextInt(); // Get input
 
                 // Check if input is valid
@@ -78,19 +78,32 @@ public class GuessGameV3 extends GuessGameV2 {
 
             // Check if the guess is correct
             if (number == getAnswer()) {
-                System.out.println("Correct! You guessed in " + attempts + " attempt(s).");
+                System.out.print("Congratulations! ");
+                if (i == 1) {
+                    System.out.println("You've guessed the number in 1 attempt.");
+                } else {
+                    System.out.println("You've guessed the number in " + attempts + " attempts.");
+                }
                 win = true;
-                return true;
+                check = false; // change boolean to false
+                return true; // Stop loop
             } else if (number < getAnswer()) {
-                System.out.println("Try higher!");
+                System.out.println("Try a higher number!");
             } else {
-                System.out.println("Try lower!");
+                System.out.println("Try a lower number!");
             }
         }
 
-        // If out of attempts
-        System.out.println("Out of attempts! Answer was: " + getAnswer());
-        return false;
+        // if input is incorrect display text and correct answer
+        if (check) {
+            if (attempts == 1) {
+                System.out.println("Sorry, you've used all your attempt. The correct answer was: " + getAnswer());
+            } else {
+                System.out.println("Sorry, you've used all your attempts. The correct answer was: " + getAnswer());
+            }
+            return false;
+        }
+        return true;
     }
 
     // Generate game log
