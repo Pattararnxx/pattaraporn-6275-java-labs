@@ -19,58 +19,87 @@ package potjanapimol.pattaraporn.lab8;
 import javax.swing.*;
 
 public class MobileDeviceV3 extends MobileDeviceV2 {
+    // Declare the JMenuBar and JMenu objects for menu and submenus
     protected JMenuBar menuBar;
-    protected JMenu fileMenu,configMenu,sizeMenu,colorMenu,fontMenu;
-    protected JMenuItem fileItem,configItem;
+    protected JMenu fileMenu, configMenu, sizeMenu, colorMenu, fontMenu;
 
-    public MobileDeviceV3 (String title){
+    // Declare JMenuItem objects for each menu item
+    protected JMenuItem newItem, openItem, saveItem, exitItem;
+
+    // Constructor that passes title to the superclass
+    public MobileDeviceV3(String title) {
         super(title);
     }
-    public static void createAndShowGUI(){
+
+    // Method to create and show the GUI
+    public static void createAndShowGUI() {
         MobileDeviceV3 mdv3 = new MobileDeviceV3("Mobile Device V3");
-        
-        mdv3.addComponents();
-        mdv3.setFrameFeature();
+
+        mdv3.addComponents(); // Add components like buttons and menus
+        mdv3.setFrameFeature(); // Set frame properties like size, close operation, etc.
     }
+
+    // Main method to invoke the createAndShowGUI method in the Event Dispatch
+    // Thread
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
-            public void run(){
+            public void run() {
                 createAndShowGUI();
             }
         });
     }
+
+    // Override addComponents to add the menu bar to the existing layout
     @Override
-    protected void addComponents(){
-        super.addComponents();
-        menuBar = new JMenuBar();
+    protected void addComponents() {
+        super.addComponents(); // Call the superclass method to retain existing components
+        addMenus(); // Add the menu bar and menus
+        this.setJMenuBar(menuBar); // Set the created menu bar to the frame
+    }
+
+    // Method to create the menu bar and add menus/submenus
+    protected void addMenus() {
+        menuBar = new JMenuBar(); // Create a new menu bar
+
+        // Create and add File menu with items
         fileMenu = new JMenu("File");
+        newItem = new JMenuItem("New");
+        openItem = new JMenuItem("Open");
+        saveItem = new JMenuItem("Save");
+        exitItem = new JMenuItem("Exit");
+
+        fileMenu.add(newItem);
+        fileMenu.add(openItem);
+        fileMenu.add(saveItem);
+        fileMenu.add(exitItem);
+
+        // Create and add Config menu with submenus (Size, Color, Font)
         configMenu = new JMenu("Config");
-        fileMenu.add(new JMenuItem("New"));
-        fileMenu.add(new JMenuItem("Open"));
-        fileMenu.add(new JMenuItem("Save"));
-        fileMenu.add(new JMenuItem("Exit"));
-        sizeMenu = (new JMenu("Size"));
-        colorMenu = (new JMenu("Color"));
-        fontMenu = (new JMenu("Font"));
+
+        sizeMenu = new JMenu("Size");
         sizeMenu.add(new JMenuItem("Small"));
         sizeMenu.add(new JMenuItem("Medium"));
         sizeMenu.add(new JMenuItem("Large"));
         sizeMenu.add(new JMenuItem("Extra Large"));
 
+        colorMenu = new JMenu("Color");
         colorMenu.add(new JMenuItem("Black"));
         colorMenu.add(new JMenuItem("Red"));
         colorMenu.add(new JMenuItem("Green"));
         colorMenu.add(new JMenuItem("Blue"));
 
+        fontMenu = new JMenu("Font");
         fontMenu.add(new JMenuItem("Font 1"));
         fontMenu.add(new JMenuItem("Font 2"));
         fontMenu.add(new JMenuItem("Font 3"));
 
-        menuBar.add(fileMenu);
-        menuBar.add(configMenu);
+        // Add submenus to the Config menu
         configMenu.add(sizeMenu);
         configMenu.add(colorMenu);
         configMenu.add(fontMenu);
-        this.setJMenuBar(menuBar);
+
+        // Add File and Config menus to the menu bar
+        menuBar.add(fileMenu);
+        menuBar.add(configMenu);
     }
 }
