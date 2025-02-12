@@ -22,7 +22,7 @@
  
  public class MobileDeviceV1 extends MySimpleWindow {
      // Extends MySimpleWindow to reuse its components
-     protected JLabel deviceLB, brandLB, priceLB, typeLB;
+     protected JLabel deviceLB1, brandLB, priceLB, typeLB;
      protected JTextField deviceTF, brandTF, priceTF;
      protected JRadioButton smartphoneRB, tabletRB;
      protected JPanel formPanel, listPanel;
@@ -49,7 +49,7 @@
      @Override
      protected void addComponents() {
          super.addComponents(); // Calls the parent method to add existing buttons
-         deviceLB = new JLabel("Device Name:");
+         deviceLB1 = new JLabel("Device Name:");
          deviceTF = new JTextField(15);
          brandLB = new JLabel("Brand:");
          brandTF = new JTextField(15);
@@ -62,7 +62,7 @@
          formPanel = new JPanel();
          listPanel = new JPanel();
          formPanel.setLayout(new GridLayout(4, 2)); // Organizes form fields in a 4-row, 2-column grid
-         formPanel.add(deviceLB);
+         formPanel.add(deviceLB1);
          formPanel.add(deviceTF);
          formPanel.add(brandLB);
          formPanel.add(brandTF);
