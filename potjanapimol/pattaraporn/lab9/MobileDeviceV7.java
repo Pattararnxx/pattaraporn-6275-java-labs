@@ -9,7 +9,7 @@
  * this image along with the other UI components,
  * keeping the layout consistent.
  * 
- * Last-Update : 12/02/2568
+ * Last-Update : 14/02/2568
  */
 package potjanapimol.pattaraporn.lab9;
 
@@ -30,6 +30,7 @@ public class MobileDeviceV7 extends MobileDeviceV6 {
 
         mdv7.addComponents(); // Add components like buttons and menus
         mdv7.setFrameFeature(); // Set frame properties like size, close operation, etc.
+        mdv7.addMenus();
     }
 
     public static void main(String[] args) {
@@ -53,7 +54,7 @@ public class MobileDeviceV7 extends MobileDeviceV6 {
                 "- 5000mAh Battery\n" +
                 "- 6.8-inch AMOLED Display\n" +
                 "- 120Hz Refresh Rate\n" +
-                "- Fast Charging");
+                "- 5000mAh Battery with Fast Charging");
         rateSlide.setValue(9);
 
         devicePic = new ReadImage("S25-ultra.jpg"); // Creates a new ReadImage object

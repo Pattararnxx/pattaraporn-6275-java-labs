@@ -10,7 +10,7 @@
  * It maintains the layout and functionality of the previous versions 
  * while enhancing the appearance.
  * 
- * Last-Update : 12/02/2568
+ * Last-Update : 14/02/2568
  */
 
 package potjanapimol.pattaraporn.lab9;
@@ -36,6 +36,7 @@ public class MobileDeviceV6 extends MobileDeviceV5 {
 
         mdv6.addComponents(); // Add components like buttons and menus
         mdv6.setFrameFeature(); // Set frame properties like size, close operation, etc.
+        mdv6.addMenus();
     }
 
     public static void main(String[] args) {

@@ -10,7 +10,7 @@
  * The use of JList with JScrollPane allows for the display of multiple vendor options,
  * and the JSlider is customized for ratings.
  * 
- * Last-Update: 12/02/2568
+ * Last-Update: 14/02/2568
  */
 
 package potjanapimol.pattaraporn.lab9;
@@ -20,12 +20,12 @@ import java.awt.*;
 import javax.swing.*;
 
 public class MobileDeviceV5 extends MobileDeviceV4 {
-    String vendor[] = { "AIS", "True", "DTAC", "Shopee" }; // Array of available vendors
-    JList<String> vendorList;
-    JScrollPane vendorScroll;
-    JPanel devicePanel, vendorPanel, ratePanel, combinedPanel;
-    JLabel deviceLB, rateLB;
-    JSlider rateSlide;
+    protected String vendor[] = { "AIS", "True", "DTAC", "Shopee" }; // Array of available vendors
+    protected JList<String> vendorList;
+    protected JScrollPane vendorScroll;
+    protected JPanel devicePanel, vendorPanel, ratePanel, combinedPanel;
+    protected JLabel deviceLB, rateLB;
+    protected JSlider rateSlide;
 
     public MobileDeviceV5(String title) {
         super(title);
@@ -37,6 +37,7 @@ public class MobileDeviceV5 extends MobileDeviceV4 {
 
         mdv5.addComponents(); // Add components like buttons and menus
         mdv5.setFrameFeature(); // Set frame properties like size, close operation, etc.
+        mdv5.addMenus();
     }
 
     public static void main(String[] args) {
