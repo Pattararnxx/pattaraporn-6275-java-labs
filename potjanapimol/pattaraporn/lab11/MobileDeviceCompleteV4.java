@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
-public class MobileDeviceCompleteV4 extends MobileDeviceCompleteV2{
+public class MobileDeviceCompleteV4 extends MobileDeviceCompleteV2 {
 
     // Custom menu item for color selection
     protected JMenuItem customColor;
@@ -25,6 +25,7 @@ public class MobileDeviceCompleteV4 extends MobileDeviceCompleteV2{
     public MobileDeviceCompleteV4(String title) {
         super(title);
     }
+
     // Creates and shows the GUI
     public static void createAndShowGUI() {
         MobileDeviceCompleteV4 window4 = new MobileDeviceCompleteV4("Mobile Device CompleteV4");
@@ -37,13 +38,14 @@ public class MobileDeviceCompleteV4 extends MobileDeviceCompleteV2{
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater((new Runnable() {
-            public void run(){
+            public void run() {
                 createAndShowGUI();
             }
         }));
     }
+
     @Override
-    public void addMenus(){
+    public void addMenus() {
         super.addMenus();
 
         // Create a new "Config" menu and a "Color" submenu with a "Custom" item
@@ -54,17 +56,19 @@ public class MobileDeviceCompleteV4 extends MobileDeviceCompleteV2{
         configMenu.add(colorMenu);
         menuBar.add(configMenu);
     }
+
     @Override
-    public void addListeners(){
+    public void addListeners() {
         super.addListeners();
         customColor.addActionListener(this);
-    } 
+    }
+
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e); // Call parent action handler
-        if (e.getSource() == customColor){
+        if (e.getSource() == customColor) {
             Color newColor = JColorChooser.showDialog(this, "Chooser Text Color", getForeground());
-            if (newColor != null) {  // If a new color is selected
+            if (newColor != null) { // If a new color is selected
                 deviceNameField.setForeground(newColor);
                 brandField.setForeground(newColor);
                 priceField.setForeground(newColor);

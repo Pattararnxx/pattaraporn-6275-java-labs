@@ -17,11 +17,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-
-public class MobileDeviceCompleteV2 extends MobileDeviceComplete implements ActionListener{
+public class MobileDeviceCompleteV2 extends MobileDeviceComplete implements ActionListener {
     public MobileDeviceCompleteV2(String title) {
         super(title);
     }
+
     // Creates and shows the GUI
     public static void createAndShowGUI() {
         MobileDeviceCompleteV2 window2 = new MobileDeviceCompleteV2("Mobile Device CompleteV2");
@@ -34,7 +34,7 @@ public class MobileDeviceCompleteV2 extends MobileDeviceComplete implements Acti
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater((new Runnable() {
-            public void run(){
+            public void run() {
                 createAndShowGUI();
             }
         }));
@@ -42,20 +42,21 @@ public class MobileDeviceCompleteV2 extends MobileDeviceComplete implements Acti
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == deviceNameField){
-            String msg = "You pressed Enter in Device Name field: "+ deviceNameField.getText();
-            JOptionPane.showMessageDialog(this, msg,"Notification",JOptionPane.INFORMATION_MESSAGE);
+        if (e.getSource() == deviceNameField) {
+            String msg = "You pressed Enter in Device Name field: " + deviceNameField.getText();
+            JOptionPane.showMessageDialog(this, msg, "Notification", JOptionPane.INFORMATION_MESSAGE);
         }
-        if (e.getSource() == brandField){
-            String msg = "Brand field says: "+ brandField.getText();
-            JOptionPane.showMessageDialog(this, msg,"Notification",JOptionPane.INFORMATION_MESSAGE);
+        if (e.getSource() == brandField) {
+            String msg = "Brand field says: " + brandField.getText();
+            JOptionPane.showMessageDialog(this, msg, "Notification", JOptionPane.INFORMATION_MESSAGE);
         }
-        if (e.getSource() == priceField){
-            String msg = "Price entered: "+ priceField.getText();
-            JOptionPane.showMessageDialog(this, msg,"Notification",JOptionPane.INFORMATION_MESSAGE);
+        if (e.getSource() == priceField) {
+            String msg = "Price entered: " + priceField.getText();
+            JOptionPane.showMessageDialog(this, msg, "Notification", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    public void addListeners(){
+
+    public void addListeners() {
         deviceNameField.addActionListener(this);
         brandField.addActionListener(this);
         priceField.addActionListener(this);
