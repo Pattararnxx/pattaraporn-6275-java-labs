@@ -69,7 +69,6 @@ public class MobileDeviceV12 extends MobileDeviceV11 {
             if (tf.getText().isEmpty()) {
                 tf.requestFocusInWindow();
                 nextComponent.setEnabled(false);
-                tabletRB.setEnabled(false);
                 JOptionPane.showMessageDialog(this, "Please enter some data in " + tf.getName(), "Message",
                         JOptionPane.INFORMATION_MESSAGE);
             } else {
