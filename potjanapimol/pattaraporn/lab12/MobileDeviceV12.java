@@ -69,6 +69,7 @@ public class MobileDeviceV12 extends MobileDeviceV11 {
             if (tf.getText().isEmpty()) {
                 tf.requestFocusInWindow();
                 nextComponent.setEnabled(false);
+                tabletRB.setEnabled(false);
                 JOptionPane.showMessageDialog(this, "Please enter some data in " + tf.getName(), "Message",
                         JOptionPane.INFORMATION_MESSAGE);
             } else {
@@ -76,6 +77,7 @@ public class MobileDeviceV12 extends MobileDeviceV11 {
                 if (checkPrice < 0) { // Check if the price is negative
                     tf.requestFocusInWindow();
                     nextComponent.setEnabled(false);
+                    tabletRB.setEnabled(false);
                     JOptionPane.showMessageDialog(this, tf.getName() + " must be a positive number", "Error",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
