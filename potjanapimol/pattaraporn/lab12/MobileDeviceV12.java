@@ -77,7 +77,7 @@ public class MobileDeviceV12 extends MobileDeviceV11 {
                     tf.requestFocusInWindow();
                     nextComponent.setEnabled(false);
                     JOptionPane.showMessageDialog(this, tf.getName() + " must be a positive number", "Error",
-                            JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.ERROR_MESSAGE);
                 } else {
                     tf.requestFocusInWindow();
                     nextComponent.setEnabled(true);
