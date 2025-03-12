@@ -1,3 +1,17 @@
+/*
+ * Author: Pattaraporn Potjanapimol
+ * ID : 673040627-5
+ * Sec : 2
+ * 
+ * This Java program allows users to manage mobile device data 
+ * by saving it to files and opening it from files in two formats: 
+ * text and binary. It extends a previous version (MobileDeviceV14) 
+ * and adds functionalities for file handling with options for different formats. 
+ * The application uses a Graphical User Interface (GUI) where users can select the file format
+ * , save data, and open previously saved data.
+ * 
+ * Last - Update : 13/03/2568
+ */
 package potjanapimol.pattaraporn.lab12;
 
 import java.io.File;
