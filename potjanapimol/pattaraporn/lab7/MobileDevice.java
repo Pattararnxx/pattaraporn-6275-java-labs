@@ -10,7 +10,7 @@ public abstract class MobileDevice {
     protected double price; // Price of the mobile device
 
     // Abstract method to check if the device is a watch
-    abstract boolean isWatch();
+    public abstract boolean isWatch();
 
     // Getter for color
     public String getColor() {

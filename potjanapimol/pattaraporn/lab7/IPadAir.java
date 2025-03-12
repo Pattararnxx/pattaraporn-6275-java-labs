@@ -37,7 +37,7 @@ public class IPadAir extends MobileDevice {
     }
 
     // Method to return false as IPadAir is not a watch
-    boolean isWatch() {
+    public boolean isWatch() {
         return false;
     }
 

@@ -12,7 +12,7 @@
  * By preventing invalid input and guiding the user step by step,
  * it ensures smooth data entry.
  * 
- * Last - Update: 06/03/2568
+ * Last - Update: 12/03/2568
  */
 
 package potjanapimol.pattaraporn.lab12;
@@ -83,7 +83,7 @@ public class MobileDeviceV12 extends MobileDeviceV11 {
                     tf.requestFocusInWindow();
                     nextComponent.setEnabled(true);
                     JOptionPane.showMessageDialog(this,
-                            tf.getName() + " is changed to " + String.format("%.1f", checkPrice), "Error",
+                            tf.getName() + " is changed to " + String.format("%.1f", checkPrice), "Message",
                             JOptionPane.INFORMATION_MESSAGE);
                 }
             }
@@ -91,7 +91,7 @@ public class MobileDeviceV12 extends MobileDeviceV11 {
             tf.requestFocusInWindow();
             nextComponent.setEnabled(false);
             JOptionPane.showMessageDialog(this, "Please enter a valid number in " + tf.getName(), "Message",
-                    JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

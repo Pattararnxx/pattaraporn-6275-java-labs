@@ -21,7 +21,7 @@ public class AppleWatch extends MobileDevice {
     }
 
     // Method to check if it is a watch
-    boolean isWatch() {
+    public boolean isWatch() {
         return true;
     }
 
