@@ -31,7 +31,7 @@ public class MobileDeviceV13 extends MobileDeviceV12 {
 
     // Method to create and show the GUI
     public static void createAndShowGUI() {
-        MobileDeviceV13 mdv13 = new MobileDeviceV13("Mobile Device V12");
+        MobileDeviceV13 mdv13 = new MobileDeviceV13("Mobile Device V13");
 
         mdv13.addComponents(); // Add UI components
         mdv13.setFrameFeature(); // Set JFrame properties
